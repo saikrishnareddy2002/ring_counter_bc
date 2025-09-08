@@ -7,8 +7,8 @@ from cocotb.triggers import ClockCycles
 
 
 @cocotb.test()
-async def test_project(dut):
-    dut._log.info("Start")
+async def test_ring_counter(dut):
+    dut._log.info("Start ring counter test")
 
     # Set the clock period to 10 us (100 KHz)
     clock = Clock(dut.clk, 10, units="us")
@@ -20,21 +20,28 @@ async def test_project(dut):
     dut.ui_in.value = 0
     dut.uio_in.value = 0
     dut.rst_n.value = 0
-    await ClockCycles(dut.clk, 10)
+    await ClockCycles(dut.clk, 5)
     dut.rst_n.value = 1
 
-    dut._log.info("Test project behavior")
+    # Expected sequence of values
+    expected_seq = [
+        0b0000_0001,
+        0b0000_0010,
+        0b0000_0100,
+        0b0000_1000,
+        0b0001_0000,
+        0b0010_0000,
+        0b0100_0000,
+        0b1000_0000,
+        0b0000_0001,  # wrap-around
+    ]
 
-    # Set the input values you want to test
-    dut.ui_in.value = 20
-    dut.uio_in.value = 30
-
-    # Wait for one clock cycle to see the output values
+    # Wait a cycle after releasing reset
     await ClockCycles(dut.clk, 1)
 
-    # The following assersion is just an example of how to check the output values.
-    # Change it to match the actual expected output of your module:
-    assert dut.uo_out.value == 50
-
-    # Keep testing the module by changing the input values, waiting for
-    # one or more clock cycles, and asserting the expected output values.
+    # Check the sequence
+    for expected in expected_seq:
+        assert dut.uo_out.value == expected, \
+            f"Ring counter mismatch: got {dut.uo_out.value}, expected {expected:08b}"
+        dut._log.info(f"uo_out = {dut.uo_out.value} (expected {expected:08b})")
+        await ClockCycles(dut.clk, 1)
