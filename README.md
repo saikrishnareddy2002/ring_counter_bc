@@ -1,41 +1,67 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
+ring_counter_bc
 
-- [Read the documentation for project](docs/info.md)
+Tiny Tapeout Verilog Project Template
 
-## What is Tiny Tapeout?
+Description
 
-Tiny Tapeout is an educational project that aims to make it easier and cheaper than ever to get your digital and analog designs manufactured on a real chip.
+This project implements an 8-bit ring counter using Verilog and is structured as a Tiny Tapeout project. The ring counter cycles a single "1" through 8 bits, wrapping around once it reaches the end. It's ideal as a fundamental sequential design demonstration for educational or ASIC prototyping purposes.
 
-To learn more and get started, visit https://tinytapeout.com.
+This project is integrated into the Tiny Tapeout ecosystem, enabling automated ASIC design flow via GitHub Actions and OpenLane.
 
-## Set up your Verilog project
+Setup Guide
 
-1. Add your Verilog files to the `src` folder.
-2. Edit the [info.yaml](info.yaml) and update information about your project, paying special attention to the `source_files` and `top_module` properties. If you are upgrading an existing Tiny Tapeout project, check out our [online info.yaml migration tool](https://tinytapeout.github.io/tt-yaml-upgrade-tool/).
-3. Edit [docs/info.md](docs/info.md) and add a description of your project.
-4. Adapt the testbench to your design. See [test/README.md](test/README.md) for more information.
+Follow these steps to set up and modify the project for your needs:
 
-The GitHub action will automatically build the ASIC files using [OpenLane](https://www.zerotoasiccourse.com/terminology/openlane/).
+Verilog Sources
+Add or update your ring counter module(s) in the src/ directory.
 
-## Enable GitHub actions to build the results page
+Configuration (info.yaml)
+Open and edit info.yaml to specify your design's entry point:
 
-- [Enabling GitHub Pages](https://tinytapeout.com/faq/#my-github-action-is-failing-on-the-pages-part)
+source_files: include your Verilog files.
 
-## Resources
+top_module: set to your ring counter's top-level module name.
 
-- [FAQ](https://tinytapeout.com/faq/)
-- [Digital design lessons](https://tinytapeout.com/digital_design/)
-- [Learn how semiconductors work](https://tinytapeout.com/siliwiz/)
-- [Join the community](https://tinytapeout.com/discord)
-- [Build your design locally](https://www.tinytapeout.com/guides/local-hardening/)
+Documentation (docs/info.md)
+Provide a clear description of how your design works, its functionality, and any usage notes.
 
-## What next?
+Testbench Adaptation
+Adjust or create testbench files in the test/ folder to simulate and validate your design. Reference test/README.md for guidance.
 
-- [Submit your design to the next shuttle](https://app.tinytapeout.com/).
-- Edit [this README](README.md) and explain your design, how it works, and how to test it.
-- Share your project on your social network of choice:
-  - LinkedIn [#tinytapeout](https://www.linkedin.com/search/results/content/?keywords=%23tinytapeout) [@TinyTapeout](https://www.linkedin.com/company/100708654/)
-  - Mastodon [#tinytapeout](https://chaos.social/tags/tinytapeout) [@matthewvenn](https://chaos.social/@matthewvenn)
-  - X (formerly Twitter) [#tinytapeout](https://twitter.com/hashtag/tinytapeout) [@tinytapeout](https://twitter.com/tinytapeout)
+Automated Build
+Once committed, the GitHub Actions pipeline will run the OpenLane toolchain to generate ASIC files automatically.
+
+Resources
+
+Tiny Tapeout Overview & Docs → 
+GitHub
+
+info.yaml migration tool → 
+GitHub
+
+OpenLane ASIC build integration → 
+GitHub
+
+Next Steps
+
+Explain Your Design
+Update this README to describe your specific implementation: how the ring counter initializes, how it rotates bits, and how outputs are used.
+
+Demonstrate It
+
+Include expected waveforms or timing diagrams.
+
+Share a sample simulation (for example in Verilog or on a waveform viewer).
+
+Submit for Fabrication
+When ready, consider submitting your design through Tiny Tapeout’s shuttle submission system for manufacturing: 
+GitHub
+
+Share Your Work
+Spread the word and connect with the community:
+
+LinkedIn/X/Mastodon: tag #tinytapeout
+
+Engage with the Tiny Tapeout community via their site/forum
