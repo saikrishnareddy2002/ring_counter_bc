@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
   title:        "8-bit Ring Counter"
-  author:       "Jeet"
+  author:       "G1"
   discord:      ""          # optional
   description:  "An 8-bit ring counter that cycles a single high bit across outputs."
   language:     "Verilog"
