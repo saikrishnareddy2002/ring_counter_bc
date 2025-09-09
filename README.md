@@ -44,24 +44,3 @@ GitHub
 OpenLane ASIC build integration → 
 GitHub
 
-Next Steps
-
-Explain Your Design
-Update this README to describe your specific implementation: how the ring counter initializes, how it rotates bits, and how outputs are used.
-
-Demonstrate It
-
-Include expected waveforms or timing diagrams.
-
-Share a sample simulation (for example in Verilog or on a waveform viewer).
-
-Submit for Fabrication
-When ready, consider submitting your design through Tiny Tapeout’s shuttle submission system for manufacturing: 
-GitHub
-
-Share Your Work
-Spread the word and connect with the community:
-
-LinkedIn/X/Mastodon: tag #tinytapeout
-
-Engage with the Tiny Tapeout community via their site/forum
