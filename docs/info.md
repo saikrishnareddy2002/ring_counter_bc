@@ -12,7 +12,7 @@ This produces a repeating 8-state sequence useful for LED chasers, timing circui
 ## How to test
 
 1. Provide a clock signal to `clk`.  
-   - Example: 100 kHz clock used in the testbench. 
+   - Example: 100 kHz clock used in the testbench.  
 2. Hold `rst_n = 0` for a few cycles to reset the counter, then release it (`rst_n = 1`).  
 3. Observe the outputs `uo[7:0]`.  
    - Only one output bit will be high at a time.  
